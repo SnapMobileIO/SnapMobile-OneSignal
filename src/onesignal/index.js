@@ -6,8 +6,8 @@ import request from 'request';
 class OneSignal {
 
   constructor(options = {}) {
-    this.appId = process.env.ONESIGNAL_APP_ID;
-    this.restApiKey = process.env.ONESIGNAL_API_KEY;
+    this.appId = options.appId || process.env.ONESIGNAL_APP_ID;
+    this.restApiKey = options.restApiKey || process.env.ONESIGNAL_API_KEY;
     this.baseUrl = 'https://onesignal.com/api/v1';
   }
 
