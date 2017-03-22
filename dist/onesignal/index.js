@@ -20,12 +20,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var OneSignal = function () {
   function OneSignal() {
-    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     _classCallCheck(this, OneSignal);
 
-    this.appId = process.env.ONESIGNAL_APP_ID;
-    this.restApiKey = process.env.ONESIGNAL_API_KEY;
+    this.appId = options.appId || process.env.ONESIGNAL_APP_ID;
+    this.restApiKey = options.restApiKey || process.env.ONESIGNAL_API_KEY;
     this.baseUrl = 'https://onesignal.com/api/v1';
   }
 
@@ -40,8 +40,8 @@ var OneSignal = function () {
   _createClass(OneSignal, [{
     key: 'getPlayers',
     value: function getPlayers() {
-      var offset = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
-      var limit = arguments.length <= 1 || arguments[1] === undefined ? 20 : arguments[1];
+      var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;
 
       var requestUrl = this.baseUrl + '/players?';
       requestUrl += 'app_id=' + this.appId + '&';
@@ -79,7 +79,7 @@ var OneSignal = function () {
   }, {
     key: 'createNotification',
     value: function createNotification() {
-      var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
       // Add the app_id to the options since this is needed for every request
       options.app_id = options.appId || this.appId;
