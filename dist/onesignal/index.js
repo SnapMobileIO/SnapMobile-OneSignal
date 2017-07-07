@@ -64,7 +64,7 @@ var OneSignal = function () {
           if (!error && response.statusCode == 200) {
             resolve(body);
           } else {
-            reject(new Error(body));
+            reject(body);
           }
         });
       });
@@ -103,7 +103,7 @@ var OneSignal = function () {
           if (!error && response.statusCode == 200) {
             resolve(body);
           } else {
-            reject(new Error(body));
+            reject(body);
           }
         });
       });
