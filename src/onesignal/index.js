@@ -37,7 +37,7 @@ class OneSignal {
         if (!error && response.statusCode == 200) {
           resolve(body);
         } else {
-          reject(new Error(body));
+          reject(body);
         }
       });
     });
@@ -69,7 +69,7 @@ class OneSignal {
         if (!error && response.statusCode == 200) {
           resolve(body);
         } else {
-          reject(new Error(body));
+          reject(body);
         }
       });
     });
